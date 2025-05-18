@@ -1,7 +1,6 @@
 #include "audioeffectservice.h"
 #include "DelayAudioSource.h"
 #include "DistortionAudioSource.h"
-#include "FlangerAudioSource.h"
 #include "RawAudioSource.h"
 #include "ReverbAudioSource.h"
 #include <QtCore/qdebug.h>
@@ -27,9 +26,6 @@ void AudioEffectService::addEffect(AudioEffectType type) {
         break;
     case AudioEffectType::Distortion:
         newEffect = new DistortionAudioSource();
-        break;
-    case AudioEffectType::Flanger:
-        newEffect = new FlangerAudioSource();
         break;
     case AudioEffectType::Raw:
         newEffect = new RawAudioSource();
@@ -101,17 +97,11 @@ QStringList AudioEffectService::getUsingEffects() {
     QStringList list;
     for (auto* effect : effects) {
         switch(effect->getAudioEffectType()) {
-        case AudioEffectType::Chorus:
-            list.append("Chorus");
-            break;
         case AudioEffectType::Delay:
             list.append("Delay");
             break;
         case AudioEffectType::Distortion:
             list.append("Distortion");
-            break;
-        case AudioEffectType::Flanger:
-            list.append("Flanger");
             break;
         case AudioEffectType::Raw:
             list.append("Raw");
