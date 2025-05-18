@@ -1,0 +1,4 @@
+module Musica
+AudioSettingsComponent 1.0 component/AudioSettingsComponent.qml
+OverviewPage 1.0 page/OverviewPage.qml
+ProjectPage 1.0 page/ProjectPage.qml
